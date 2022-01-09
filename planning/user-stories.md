@@ -41,12 +41,4 @@ As a user, I want to be able to see orders
 - As a seller, I want to be able to post items so that my potential customers can see them //create
 - As an seller, I want to be able to remove items so that my listing reflects what I have available for my customers //delete
 - As a seller, I want to be able to mark items as SOLD because I don’t want to sell something that’s no longer available 
-- As a seller, I want to be able to send messages via app, email, or text back on negotiations when buying the said book because I need a reliable way to talk to my customer who started the said negotiation.
-
-
- 
- 
- 
- 
-  
-  
+- As a seller, I want to be able to send messages via app, email, or text back on negotiations when buying the said book because I need a reliable way to talk to my customer who started the said negotiation.s
