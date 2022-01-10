@@ -9,5 +9,5 @@ CREATE TABLE books (
   review TEXT,
   seller_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   isFeatured BOOLEAN,
-  isSold BOOLEAN
+  isSold BOOLEAN DEFAULT FALSE
 );
