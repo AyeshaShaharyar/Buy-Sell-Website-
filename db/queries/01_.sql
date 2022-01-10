@@ -8,7 +8,7 @@ SELECT * from books WHERE books.price =$1 AND books.title LIKE %$2%;
 
 -- As a user, given that I am logged in, if I click on the favorite button, the book is added to my favorites.
 
-INSERT INTO favorties(user_id,book_id) VALUES ($1,$2 );
+INSERT INTO favorties(user_id,book_id) VALUES ($1,$2);
 
 -- As a user, given that I am logged in, If I click on the MyFavoriteBook button, I can see a page listing all my favorites.
 
@@ -27,13 +27,14 @@ INSERT INTO books(title, author, image, price, seller_id)VALUES(
 -- As a seller, I want to be able to mark items as SOLD because I don’t want to sell something that’s no longer available
 
 UPDATE books
--- JOIN?
 SET isSold = true
-WHERE books.seller_id=1;
---  how do we get user id
+WHERE books.id=books_id;
+
 -- SELECT * FROM books WHERE books.seller_id=1;
+-- SELECT * FROM books WHERE books.id=1;
 
 
 -- As a seller, I want to be able to send messages via app, email, or text back on negotiations when buying the said book because I need a reliable way to talk to my customer who started the said negotiation.s
+
 
 -- As a seller, I want to be able to send messages via app, email, or text back on negotiations when buying the said book because I need a reliable way to talk to my customer who started the said negotiation.
