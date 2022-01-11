@@ -1,5 +1,6 @@
 # Project - Buy/Sell Website
 Product- Books
+Name of website - Bookplace/Bookworm
 
 ## User Stories
 
@@ -41,7 +42,16 @@ As a user, I want to be able to see orders
 - As a seller, I want to be able to post items so that my potential customers can see them //create
 - As an seller, I want to be able to remove items so that my listing reflects what I have available for my customers //delete
 - As a seller, I want to be able to mark items as SOLD because I don’t want to sell something that’s no longer available 
+- As a seller, I want to be able to send messages via app, email, or text back on negotiations when buying the said book because I need a reliable way to talk to my customer who started the said negotiation.s
 - As a seller, I want to be able to send messages via app, email, or text back on negotiations when buying the said book because I need a reliable way to talk to my customer who started the said negotiation.
+
+### Routes
+- B GET /books (Get all the books - "/")
+- R GET /books/:id (Get one specific book that user clicks "books/Harry-Potter")
+- E PUT/PATCH /books/:id (Updates the specific book- Seller updates his book's posting/ad")
+- A POST /books (seller can post books/ads of books)
+- D DELETE /books/:id (seller deletes the book/ad, when it is sold-)
+
 
 
  
