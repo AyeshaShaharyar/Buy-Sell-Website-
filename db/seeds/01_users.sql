@@ -1,3 +1,10 @@
--- Users table seeds here (Example)
-INSERT INTO users (name) VALUES ('Alice');
-INSERT INTO users (name) VALUES ('Kira');
+insert into users (id, name, email, password, phone_number, isSeller) values (1, 'Selle Eilhermann', 'seilhermann0@npr.org', 'password', '633-285-5702', false);
+insert into users (id, name, email, password, phone_number, isSeller) values (2, 'Marleen Tuerena', 'mtuerena1@elpais.com', 'password', '877-498-9939', true);
+insert into users (id, name, email, password, phone_number, isSeller) values (3, 'Leila Lennon', 'llennon2@opensource.org', 'password', '845-791-4533', false);
+insert into users (id, name, email, password, phone_number, isSeller) values (4, 'Hamish Foale', 'hfoale3@reverbnation.com', 'password', '556-959-9585', false);
+insert into users (id, name, email, password, phone_number, isSeller) values (5, 'Hendrika Reddan', 'hreddan4@disqus.com', 'password', '966-678-6680', false);
+insert into users (id, name, email, password, phone_number, isSeller) values (6, 'Bobby Dowe', 'bdowe5@cocolog-nifty.com', 'password', '463-667-2582', false);
+insert into users (id, name, email, password, phone_number, isSeller) values (7, 'Tanney Capnerhurst', 'tcapnerhurst6@scribd.com', 'password', '194-398-0627', false);
+insert into users (id, name, email, password, phone_number, isSeller) values (8, 'Burlie Gubbins', 'bgubbins7@desdev.cn', 'password', '419-898-1090', false);
+insert into users (id, name, email, password, phone_number, isSeller) values (9, 'Stephie Greenhall', 'sgreenhall8@reuters.com', 'password', '246-229-5723', false);
+insert into users (id, name, email, password, phone_number, isSeller) values (10, 'Pauli Garber', 'pgarber9@goo.ne.jp', 'password', '755-484-4261', false);
