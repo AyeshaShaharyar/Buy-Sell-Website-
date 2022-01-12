@@ -1,4 +1,4 @@
-insert into categories ( category_name) values ('Arts & Photography'),
+insert into categories (name) values ('Arts & Photography'),
 ('Biographies & Memoirs'),
 ('Business & Investing'),
 ('Calendars'),

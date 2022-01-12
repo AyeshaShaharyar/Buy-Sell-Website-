@@ -12,5 +12,5 @@ CREATE TABLE books (
   isSold BOOLEAN DEFAULT FALSE,
   description TEXT,
   condition TEXT,
-  category INTEGER
+  category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE
 );

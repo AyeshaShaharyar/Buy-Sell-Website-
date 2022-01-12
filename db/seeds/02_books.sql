@@ -1,5 +1,5 @@
 insert into books (id, title, image,
-price, rating,review, seller_id,isFeatured, isSold, description, condition) values
+price, rating,review, seller_id,isFeatured, isSold, description, condition, category_id) values
 (
   '3',
     'Portable Pets',
@@ -12,7 +12,8 @@ price, rating,review, seller_id,isFeatured, isSold, description, condition) valu
     true,
     false,
     'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.',
-    'New'
+    'New',
+    5
 ),
 
 (
@@ -27,8 +28,8 @@ price, rating,review, seller_id,isFeatured, isSold, description, condition) valu
     false,
     false,
       'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.',
-    'New'
-
+    'New',
+5
 ),
 
 (
@@ -43,7 +44,8 @@ price, rating,review, seller_id,isFeatured, isSold, description, condition) valu
     true,
     true,
   'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.',
-    'New'
+    'New',
+    5
 ),
 
 (
@@ -59,7 +61,8 @@ price, rating,review, seller_id,isFeatured, isSold, description, condition) valu
     false,
       'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.',
 
-'New'
+'New',
+5
 
 ),
 
@@ -76,7 +79,8 @@ price, rating,review, seller_id,isFeatured, isSold, description, condition) valu
     true,
 
   'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.',
-    'New'
+    'New',
+5
 ),
 
 (
@@ -91,7 +95,8 @@ price, rating,review, seller_id,isFeatured, isSold, description, condition) valu
     true,
     false,
       'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.',
-    'New'
+    'New',
+    5
 )
 ,
 
@@ -107,7 +112,8 @@ price, rating,review, seller_id,isFeatured, isSold, description, condition) valu
     false,
     false,
       'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.',
-    'New'
+    'New',
+    5
 ),
 
 (
@@ -122,7 +128,8 @@ price, rating,review, seller_id,isFeatured, isSold, description, condition) valu
     true,
     false,
       'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.',
-    'New'
+    'New',
+    5
 ),
 
 
@@ -139,7 +146,8 @@ price, rating,review, seller_id,isFeatured, isSold, description, condition) valu
     true,
     false,
       'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.',
-    'New'
+    'New',
+    15
 ),
 
 (
@@ -154,7 +162,8 @@ price, rating,review, seller_id,isFeatured, isSold, description, condition) valu
     true,
     false,
       'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.',
-  'New'
+  'New',
+  15
 );
 
 
