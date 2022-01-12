@@ -19,12 +19,24 @@ const tenBooksISBN = [
   // "0763603171"
 
 //next five is science fiction
-"0688131379",
-"0060929871",
-"0375761187",
-"0486270718",
-"0452284236"
+// "0688131379",
+// "0060929871",
+// "0375761187",
+// "0486270718",
+// "0452284236"
+
+//next five is history
+"0321047907",
+"0205406211",
+"8420660132",
+"0312330022",
+"0764552422"
+
+
+
 ]
+
+
 
 let responses=[];
 
@@ -46,7 +58,8 @@ for (let i=0; i<tenBooksISBN.length; i++)
     // console.log({authors, coverMedium, title});
     let price,rating,review,seller_id,isFeatured,isSold;
     let j=i+1;
-    responses.push( `('${j}','${title}', '${authors}', '${coverMedium}')` );
+    responses.push( `'${j}','${title}', '${authors}', '${coverMedium}'` );
+
     console.log(responses);
   })
   .catch(err => console.log(err));
