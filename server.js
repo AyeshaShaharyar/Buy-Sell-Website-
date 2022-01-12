@@ -35,12 +35,12 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/getBooks");
+const booksRoutes = require("./routes/books");
 const widgetsRoutes = require("./routes/widgets");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/getBooks", usersRoutes(db));
+app.use("/", booksRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
@@ -54,6 +54,10 @@ app.get("/", (req, res) => {
 
 app.get("/post", (req, res) => {
   res.render("post");
+});
+
+app.get("/books/:id", (req, res) => {
+  res.render("books_ad");
 });
 
 app.listen(PORT, () => {
