@@ -83,23 +83,27 @@ app.post("/sms", (req, res) =>{
   const twiml = new MessagingResponse();
 
   // Add a text message.
-  const msg = twiml.message('Check out this sweet owl!');
+  const msg = twiml.message('SMS successly sent!');
 
   // Add a picture message.
-  msg.media('https://demo.twilio.com/owl.png');
+  msg.media('public/images/MessageSent.png');
 
   // require('dotenv').config();
   const accountSid = process.env.TWILIO_ACCOUNT_SID;
   console.log(accountSid);
   const autheToken = process.env.TWILIO_AUTH_TOKEN;
-  let fromNumber = process.env.TWILIO_FROM_NUMBER;
+  let fromNumber = process.env.TWILIO_FROM_NUMBER;//replace with current user's phone number
   let toNumber = process.env.TWILIO_TO_NUMBER;
   let messageToSend = req.body.messageText;
   // console.log(fromNumber);
   // console.log(toNumber);
   // console.log(messageToSend);
   // console.log(messageToSend);
-  sendSMS(fromNumber, toNumber, messageToSend);
+  // let id = req.session;
+  // console.log("id:",id);
+
+  //Uncomment the next line of code to send SMS message
+  // sendSMS(fromNumber, toNumber, messageToSend);
 
   function sendSMS(fromNumber,toNumber,messageToSend) {
 
@@ -123,7 +127,9 @@ app.post("/sms", (req, res) =>{
 
 
   res.writeHead(200, {'Content-Type': 'text/xml'});
-  res.end(twiml.toString());
+  res.end(twiml.toString(),);
+
+
 
 });
 
