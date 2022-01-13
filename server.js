@@ -8,7 +8,9 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
-var cookieSession = require("cookie-session");
+let cookieSession = require("cookie-session");
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
+
 // PG database client/connection setup
 const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
@@ -76,7 +78,54 @@ app.get("/post", (req, res) =>{
   res.render("post");
 });
 
+app.post("/sms", (req, res) =>{
+  // Start our TwiML response.
+  const twiml = new MessagingResponse();
 
+  // Add a text message.
+  const msg = twiml.message('Check out this sweet owl!');
+
+  // Add a picture message.
+  msg.media('https://demo.twilio.com/owl.png');
+
+  // require('dotenv').config();
+  const accountSid = process.env.TWILIO_ACCOUNT_SID;
+  console.log(accountSid);
+  const autheToken = process.env.TWILIO_AUTH_TOKEN;
+  let fromNumber = process.env.TWILIO_FROM_NUMBER;
+  let toNumber = process.env.TWILIO_TO_NUMBER;
+  let messageToSend = req.body.messageText;
+  // console.log(fromNumber);
+  // console.log(toNumber);
+  // console.log(messageToSend);
+  // console.log(messageToSend);
+  sendSMS(fromNumber, toNumber, messageToSend);
+
+  function sendSMS(fromNumber,toNumber,messageToSend) {
+
+
+    const client = require('twilio')(accountSid,autheToken);
+
+
+    client.messages.create({
+      body:`${messageToSend}`,
+      from: `${fromNumber}`,
+      to:`${toNumber}`
+    })
+      .then(message =>console.log(message))
+      .catch((err)=>console.log(err));
+  }
+
+
+
+
+
+
+
+  res.writeHead(200, {'Content-Type': 'text/xml'});
+  res.end(twiml.toString());
+
+});
 
 
 

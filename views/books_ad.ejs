@@ -1,3 +1,9 @@
+<head>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/messages.js"></script>
+
+</head>
+
 <%- include("partials/header") %>
 
 <figure style="margin-top: 120px; "class="figure">
@@ -12,11 +18,13 @@
 
   <div class="card-body">
     <h5 class="card-title">Contact Seller</h5>
-    <p class="card-text"><textarea name="" placeholder="Your Messsage" id="" cols="25" rows="3">Hi, I'm interested! Please contact me if this is still available.</textarea></p>
+    <form id="messageForm" method="POST" action="/sms"><p class="card-text">
+        <textarea name="messageText" placeholder="Your Messsage" id="messageToSend" cols="25" rows="3" >Hi, I'm interested! Please contact me if this is still available.</textarea>
+      </p>
   </div>
   <div class="card-body">
-    <button class="btn btn-primary">Send Message</button>
-  </div>
+    <button class="btn btn-primary" id="sendMessageBtn" type="submit" form="messageForm">Send Message</button>
+  </div></form>
 </div>
 
 <%- include("partials/footer") %>
