@@ -79,26 +79,31 @@ app.get("/post", (req, res) =>{
 });
 
 app.post("/sms", (req, res) =>{
+  // let user = users[req.session.user_id];
+  // console.log(req.session.user_id);
   // Start our TwiML response.
-  const twiml = new MessagingResponse();
+  // const twiml = new MessagingResponse();
 
   // Add a text message.
-  const msg = twiml.message('SMS successly sent!');
+  // const msg = twiml.message('SMS successly sent!');
 
   // Add a picture message.
-  msg.media('public/images/MessageSent.png');
+  // msg.media('public/images/MessageSent.png');
 
   // require('dotenv').config();
   const accountSid = process.env.TWILIO_ACCOUNT_SID;
-  console.log(accountSid);
+  // console.log(accountSid);
   const autheToken = process.env.TWILIO_AUTH_TOKEN;
-  let fromNumber = process.env.TWILIO_FROM_NUMBER;//replace with current user's phone number
+
+  //replace with the phone number of the current user who is logged in
+  let fromNumber = process.env.TWILIO_FROM_NUMBER;
   let toNumber = process.env.TWILIO_TO_NUMBER;
   let messageToSend = req.body.messageText;
-  // console.log(fromNumber);
-  // console.log(toNumber);
-  // console.log(messageToSend);
-  // console.log(messageToSend);
+  console.log(fromNumber);
+  console.log(toNumber);
+  console.log(messageToSend);
+  console.log(messageToSend);
+
   // let id = req.session;
   // console.log("id:",id);
 
@@ -117,19 +122,13 @@ app.post("/sms", (req, res) =>{
       to:`${toNumber}`
     })
       .then(message =>console.log(message))
+
       .catch((err)=>console.log(err));
   }
 
-
-
-
-
-
-
-  res.writeHead(200, {'Content-Type': 'text/xml'});
-  res.end(twiml.toString(),);
-
-
+  // res.writeHead(200, {'Content-Type': 'text/xml'});
+  // res.end(twiml.toString(),);
+  res.redirect('/books/:id');
 
 });
 
