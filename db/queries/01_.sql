@@ -1,10 +1,10 @@
 -- As a user, I want to see featured books whether or not I’m logged in, if I click on the main page I should see all featured books.
 
-SELECT * from books WHERE books.isFeatured IS TRUE;
+SELECT * from books WHERE books.isFeatured IS TRUE; --done
 
 -- As a user, I want to filter books by price/by name, whether or not I’m logged in. If I enter the price range and filter the books, it should return relevant results.
 
-SELECT * from books WHERE books.price =$1 AND books.title LIKE %$2%;
+SELECT * from books WHERE books.price =$1 AND books.title LIKE %$2%; --done
 
 -- As a user, given that I am logged in, if I click on the favorite button, the book is added to my favorites.
 
@@ -19,7 +19,7 @@ SELECT books.title as title FROM favorites JOIN books ON favorites.book_id=books
 -- As a seller, I want to be able to post items so that my potential customers can see them //create
 
 INSERT INTO books(title, author, image, price, seller_id)VALUES(
-  $1,$2,$3,$4,$5
+  $1,$2,$3,$4,$5 --done
 )
 
 -- As an seller, I want to be able to remove items so that my listing reflects what I have available for my customers //delete
@@ -36,5 +36,4 @@ WHERE books.id=books_id;
 
 -- As a seller, I want to be able to send messages via app, email, or text back on negotiations when buying the said book because I need a reliable way to talk to my customer who started the said negotiation.s
 
-
--- As a seller, I want to be able to send messages via app, email, or text back on negotiations when buying the said book because I need a reliable way to talk to my customer who started the said negotiation.
+--done

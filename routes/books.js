@@ -44,7 +44,22 @@ module.exports = (db) => {
   });
 
   router.get("/:id", (req, res) => {
-  res.render("books_ad");
+    const requested = (req.params.id)
+    db.query(`SELECT * FROM books;`)
+    .then(data =>{
+      const books = data.rows;
+      books.forEach(function(book){
+        const storedTitle = book.title
+        if(requested === storedTitle){
+          res.render("books_ad", {title:book.title, price: book.price, image:book.image, description:book.description});
+        } })
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+
   });
 
   router.post("/search", (req, res) => {
