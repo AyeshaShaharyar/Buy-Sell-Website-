@@ -47,5 +47,34 @@ module.exports = (db) => {
   res.render("books_ad");
   });
 
+  router.post("/search", (req, res) => {
+    db.query(`SELECT * from books
+    WHERE books.title ILIKE $1`, [`%${req.body.search}%`])
+      .then(data => {
+        const books = data.rows;
+        const templateVars = {books: books}
+        res.render("home", templateVars);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
+  // router.post("/favorites", (req,res)=>{
+  //   const userId = req.session.user_id || 1;
+  //   const bookId = //from the i button;
+  // db.query(`INSERT INTO favorties(user_id,book_id) VALUES ($1,$2);`, [userId, bookId])
+  // })
+  // .then(data => {
+  //   res.redirect ("/books");
+  // })
+  // .catch(err => {
+  //   res
+  //     .status(500)
+  //     .json({ error: err.message });
+  // });
+
   return router;
 };

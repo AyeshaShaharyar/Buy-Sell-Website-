@@ -40,7 +40,7 @@
       <div class="row">
         <% books.forEach(function(book){ %>
 
-          <div class="col-md-4">
+          <div class="col-md-4 h-100">
 
             <div class="card mb-4 shadow-sm style="width: 18rem;">
             <img src="<%= book.image %>" class="card-img-top" alt="cover_page">
@@ -54,7 +54,7 @@
                 </div>
                 <span>
                 <small style="font-size:20px"class="text-muted">$<%= book.price %></small>
-                <i class="far fa-heart fa-sm"></i>
+                 <button type="submit"><i class="far fa-heart fa-sm"></i></button> <!--book.id-->
               </span>
               </div>
             </div>
