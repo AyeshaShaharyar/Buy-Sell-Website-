@@ -2,25 +2,38 @@
 <main style="margin-top: 120px;">
   <section >
   <div class="container">
-  <form>
+  <form action="/books" method="POST">
     <h3>Enter Ad Details</h3>
     <br>
     <div class="mb-3">
       <label  class="form-label">Title</label>
-      <input type="text" class="form-control" id="">
+      <input type="text" name="title" class="form-control" id="">
     </div>
     <div class="mb-3">
       <label class="form-label">Description</label>
-      <textarea class="form-control" rows="3"></textarea>
+      <textarea name="description" class="form-control" rows="3"></textarea>
     </div>
+
+    <!--category-->
+    <label class="form-label">Category</label>
+    <select name="category" class="form-select mb-3" aria-label=".form-select-lg example">
+      <option selected>Select</option>
+      <option value="1">Children''s Books</option>
+      <option value="2">History</option>
+      <option value="3">Humour & Entertainment</option>
+      <option value="4">Biographies & Memoirs</option>
+      <option value="4">Other</option>
+    </select>
+
+    <!--img-->
     <div class="mb-3">
-      <label class="form-label">Choose Image</label>
-      <input class="form-control" type="file" id="formFile">
+      <label class="form-label">Image URL</label>
+      <input name="url" class="form-control" type="text" id="">
     </div>
     <!--Condition-->
 
 <label class="form-label">Condition</label>
-<select class="form-select mb-3" aria-label=".form-select-lg example">
+<select name="condition" class="form-select mb-3" aria-label=".form-select-lg example">
   <option selected>Select</option>
   <option value="1">New</option>
   <option value="2">Used-Like New</option>
@@ -36,7 +49,7 @@
       <label class="form-check-label" for="flexRadioDefault1" checked>
         <div class="input-group mb-3">
           <span class="input-group-text">$</span>
-          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+          <input name="amount" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
           <span class="input-group-text">.00</span>
         </div>
       </label>
@@ -64,12 +77,12 @@
 <label class="form-label">Contact Information</label>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   Phone Number
   <div class="mb-3">
-    <input type="text" class="form-control" id="UserMobile" maxlength="14" data-fv-numeric="true" data-fv-numeric-message="Please enter valid phone numbers" data-fv-phone-country11="IN" required="required" data-fv-notempty-message="This field cannot be left blank." placeholder="e.g. 123 456 7890" name="data[User][mobile]" data-fv-field="data[User][mobile]">
+    <input type="text" class="form-control" name="phone">
   </div>
   <button type="submit" class="btn btn-primary">Post Your Ad</button>
 

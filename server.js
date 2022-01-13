@@ -7,7 +7,8 @@ const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
-
+const bodyParser = require("body-parser");
+var cookieSession = require("cookie-session");
 // PG database client/connection setup
 const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
@@ -18,6 +19,16 @@ db.connect();
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan("dev"));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(
+  cookieSession({
+    name: "session",
+    keys: [
+      "I like potatoes and gravy and cheese",
+      "I prefer filtered coffee over espresso, sometimes",
+    ],
+  })
+);
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
@@ -40,25 +51,33 @@ const widgetsRoutes = require("./routes/widgets");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/", booksRoutes(db));
+app.use("/books", booksRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
+// req.session.user_id = users.id;
 
-app.get("/", (req, res) => {
-  res.render("home");
+app.get("/login", (req, res) => {
+  const templateVars = {
+    user: users[req.session.user_id],
+  };
+  res.redirect("/books");
 });
 
-app.get("/post", (req, res) => {
+
+app.get("/", (req, res) => {
+  res.redirect("/books");
+});
+
+app.get("/post", (req, res) =>{
   res.render("post");
 });
 
-app.get("/books/:id", (req, res) => {
-  res.render("books_ad");
-});
+
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
