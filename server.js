@@ -75,7 +75,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 //login button -> home page
 
 app.get("/login", (req, res) => {
-  req.session.user_id = 2;
+  req.session.user_id = 7;
   res.redirect("/books");
 });
 
