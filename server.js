@@ -59,24 +59,40 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
+// const getUser =  function(id){
+//   console.log("line21app");
+//   return db.query(`SELECT * FROM users WHERE id = $1`, [id])
+
+//   .then(data => {
+//   const user = console.log("userObj", data.rows);
+//   })
+//   .catch((err) => {
+//     console.log(err.message);
+//   });
+// }
+
+
 //login button -> home page
 
 app.get("/login", (req, res) => {
-  req.session.user_id = 5;
-  const templateVars = {
-    user: req.session.user_id,
-  };
+  req.session.user_id = 2;
   res.redirect("/books");
 });
 
+app.get("/logout", (req, res) => {
+  req.session = null;
+  res.redirect("/books");
+});
 
 app.get("/", (req, res) => {
   res.redirect("/books");
 });
 
 app.get("/post", (req, res) =>{
-  res.render("post");
+
+  res.render("post", {user: req.session.user_id});
 });
+
 
 
 

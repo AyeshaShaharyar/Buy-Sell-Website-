@@ -47,7 +47,12 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button  type="submit" onclick="location.href = '/books/<%= book.title %>';" class="btn btn-sm btn-outline-secondary">View</button>
+                 <%= console.log (book) %>
+                  <% if(!book.issold) { %>
                   <button type="submit" onclick="location.href = '/books/<%= book.title %>';" class="btn btn-sm btn-outline-secondary">Buy</button>
+                  <% } else { %>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Sold</button>
+                  <% } %>
                 </div>
                 <span>
                 <small style="font-size:20px" class="text-muted">$<%= book.price %></small>

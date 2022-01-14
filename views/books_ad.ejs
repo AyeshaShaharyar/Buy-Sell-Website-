@@ -11,8 +11,13 @@
 
 <a href="/">Browse More Books</a>
 
-<!-- <% if (user.isSeller) { %> -->
+<% if (user === seller) { %>
 
+<button class="btn"><a href="/books/delete/<%= bookId %>">Delete Ad</a></button>
+
+<button id="sold" class="btn"><a href="/books/sold/<%= bookId %>">Mark as Sold</a></button>
+
+<% } else { %>
 <div class="card" style="width: 18rem;">
   <!--if seller show delete button => delete route whicih will dlete the book with book.id, button => mark is sold=> css changes  -->
   <div class="card-body">
@@ -23,5 +28,6 @@
     <button class="btn btn-primary">Send Message</button>
   </div>
 </div>
+<% } %>
 
 <%- include("partials/footer") %>
