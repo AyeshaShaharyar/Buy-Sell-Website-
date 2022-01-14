@@ -125,7 +125,7 @@ app.post("/sms", (req, res) =>{
   // console.log("id:",id);
 
   //Uncomment the next line of code to send SMS message
-  // sendSMS(fromNumber, toNumber, messageToSend);
+  sendSMS(fromNumber, toNumber, messageToSend);
 
   function sendSMS(fromNumber,toNumber,messageToSend) {
 
