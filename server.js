@@ -58,11 +58,13 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-// req.session.user_id = users.id;
+
+//login button -> home page
 
 app.get("/login", (req, res) => {
+  req.session.user_id = 5;
   const templateVars = {
-    user: users[req.session.user_id],
+    user: req.session.user_id,
   };
   res.redirect("/books");
 });

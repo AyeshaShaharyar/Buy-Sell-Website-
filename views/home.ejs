@@ -30,7 +30,6 @@
     </div>
   </section>
 
-  <!-- <div class="card"><img alt="Card image cap" class="card-img-top img-fluid" src="img/butterPecan.jpg" style="width: 18rem; height: 20rem;" /> -->
     <!-- Books Block-->
   <section>
     <div class= "container">
@@ -47,12 +46,13 @@
               <p class="card-text"><%= book.description %></p>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="submit" onclick="location.href = '/books/<%= book.title %>';" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button  type="submit" onclick="location.href = '/books/<%= book.title %>';" class="btn btn-sm btn-outline-secondary">View</button>
                   <button type="submit" onclick="location.href = '/books/<%= book.title %>';" class="btn btn-sm btn-outline-secondary">Buy</button>
                 </div>
                 <span>
-                <small style="font-size:20px"class="text-muted">$<%= book.price %></small>
-                 <button onclick=$<%= book.id %> type="submit"><i class="far fa-heart fa-sm"></i></button> <!--book.id/ only with icon button looks uglyyy-->
+                <small style="font-size:20px" class="text-muted">$<%= book.price %></small>
+                 <button id='<%= book.id %>' class="like-icon"><i  class="far fa-heart fa-sm"></i></button>
+                 <!--book.id/ only with icon button looks uglyyy-->
               </span>
               </div>
             </div>

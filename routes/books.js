@@ -13,7 +13,7 @@ module.exports = (db) => {
     db.query(`SELECT * FROM books;`)
       .then(data => {
         const books = data.rows;
-        const templateVars = {books: books}
+        const templateVars = {books: books, user: req.session.id}
         res.render("home", templateVars);
       })
       .catch(err => {
@@ -43,7 +43,25 @@ module.exports = (db) => {
       });
   });
 
+  router.get("/favorites", (req, res) => {
+    const user_id = req.session.user_id;
+    db.query(`SELECT *, books.title FROM favorites JOIN books ON favorites.book_id=books.id JOIN users ON favorites.user_id=users.id WHERE users.id=$1;`, [user_id])
+    .then(data => {
+      const books = data.rows;
+      console.log(books);
+      const templateVars = {books: books}
+      res.render("favorites", templateVars);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+  });
+
   router.get("/:id", (req, res) => {
+    const user = req.session.id || 2;
+    const templateVars = {user: user};
     const requested = (req.params.id)
     db.query(`SELECT * FROM books;`)
     .then(data =>{
@@ -51,7 +69,7 @@ module.exports = (db) => {
       books.forEach(function(book){
         const storedTitle = book.title
         if(requested === storedTitle){
-          res.render("books_ad", {title:book.title, price: book.price, image:book.image, description:book.description});
+          res.render("books_ad", {title:book.title, price: book.price, image:book.image, description:book.description, condition:book.condition}, templateVars);
         } })
     })
     .catch(err => {
@@ -77,19 +95,22 @@ module.exports = (db) => {
       });
   });
 
-  // router.post("/favorites", (req,res)=>{
-  //   const userId = req.session.user_id || 1;
-  //   const bookId = //from the i button;
-  // db.query(`INSERT INTO favorties(user_id,book_id) VALUES ($1,$2);`, [userId, bookId])
-  // })
-  // .then(data => {
-  //   res.redirect ("/books");
-  // })
-  // .catch(err => {
-  //   res
-  //     .status(500)
-  //     .json({ error: err.message });
-  // });
+  router.post("/favorites", (req,res)=>{
+    const userId = req.session.user_id || 5 ;
+    const bookId = req.body.id;
+    console.log(userId, bookId);
+  db.query(`INSERT INTO favorites(user_id,book_id) VALUES ($1,$2);`, [userId, bookId])
+  .then(data => {
+    res.status(200);
+  })
+  .catch(err => {
+    console.log(err);
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+})
+
 
   return router;
 };
