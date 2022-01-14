@@ -49,6 +49,9 @@
         <i class="fas fa-book"></i>
         Bookplace
       </a>
+      <% if(user) { %>
+
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -59,19 +62,38 @@
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
 
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
           <li class="nav-item">
             <a class="nav-link" href="/books">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/favorites">My Favorites</a>
+            <a class="nav-link" href="/books/favorites">Favorites</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/post">Post ad</a>
           </li>
-        </ul>
-      </div>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+          </ul>
+          </div>
+        <% } else { %>
 
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/register">Register</a>
+          </li>
+        </ul>
+
+      </div>
+      <% } %>
     </div>
   </nav>
 </header>

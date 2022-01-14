@@ -34,27 +34,30 @@
   <section>
     <div class= "container">
 
-
-
-
-      <div class="row">
+      <div class="row my-4">
         <% books.forEach(function(book){ %>
 
-          <div class="col-md-4 h-100">
+          <div class="col-md-4 d-flex">
 
             <div class="card mb-4 shadow-sm style="width: 18rem;">
-            <img src="<%= book.image %>" class="card-img-top" alt="cover_page">
-            <div class="card-body">
+            <img  class="card-img-top img-fluid" src="<%= book.image %>" class="card-img-top" style="width: 25rem; height: 20rem;" alt="cover_page">
+            <div class="card-body flex-fill">
               <h5 class="card-title"><%= book.title%></h5>
               <p class="card-text"><%= book.description %></p>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="submit" onclick="location.href = '/books/<%= book.title %>';" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button  type="submit" onclick="location.href = '/books/<%= book.title %>';" class="btn btn-sm btn-outline-secondary">View</button>
+                 <%= console.log (book) %>
+                  <% if(!book.issold) { %>
                   <button type="submit" onclick="location.href = '/books/<%= book.title %>';" class="btn btn-sm btn-outline-secondary">Buy</button>
+                  <% } else { %>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Sold</button>
+                  <% } %>
                 </div>
                 <span>
-                <small style="font-size:20px"class="text-muted">$<%= book.price %></small>
-                 <button type="submit"><i class="far fa-heart fa-sm"></i></button> <!--book.id-->
+                <small style="font-size:20px" class="text-muted">$<%= book.price %></small>
+                 <button id='<%= book.id %>' class="like-icon"><i  class="far fa-heart fa-sm"></i></button>
+                 <!--book.id/ only with icon button looks uglyyy-->
               </span>
               </div>
             </div>

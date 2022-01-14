@@ -3,36 +3,62 @@
   <script type="text/javascript" src="/scripts/messages.js"></script>
 
 </head>
-
 <%- include("partials/header") %>
-<div class="figure-and-browse-more">
-<div class="figure-wrap">
-<figure style="margin-top: 120px; "class="figure">
-  <img src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" width="400px" height="300px" class="figure-img img-fluid rounded" alt="...">
-  <figcaption class="figure-caption">Book titlr.</figcaption>
-  <div class="discription-and-price">
-    <div><p>Description</p></div>
-  <div><p>price</p></div>
-</div>
-</figure>
-<div class="browse-more-books">
-<a href="/">Browse More Books</a>
-</div>
-</div>
-<div class="bookCardWrap">
-<div class="card">
-  <!-- style="width: 18rem;"> -->
+<div class="bookInfoAndForm">
 
-  <div class="card-body">
-    <h5 class="card-title">Contact Seller</h5>
-    <form id="messageForm" method="POST" action="/sms"><p class="card-text">
+  <div class="figure-and-browse-more">
+     <div class="figure-wrap">
+    <figure style="margin-top: 120px; "class="figure">
+     <img src="<%= image %>" width="400px" height="300px" class="figure-img img-fluid rounded" alt="...">
+     <figcaption class="figure-caption"><%= title %></figcaption>
+     <div class="discription-price-condition">
+    <div class="book_discription"><p><%= description %></p></div>
+    <div><div><p>$<%= price %></p></div>
+    <div><p><%= condition %></p></div></div>
+    </div>
+    </figure>
+     </div>
+
+    <div class="browse-more-books">
+    <a href="/">Browse More Books</a>
+    </div>
+
+  </div>
+
+  <div class="contactSeller">
+
+<% if (user === seller) { %>
+
+
+      <form action="/books/delete/<%= bookId %>" method="POST">
+        <button type="submit" class="btn btn-warning">Delete Ad</button>
+      </form>
+
+      <form action="/books/sold/<%= bookId %>" method="POST">
+        <button type="submit" id="sold" class="btn btn-success">Mark as Sold</button>
+      </form>
+
+
+
+<% } else { %>
+      <div class = "cardWrap">
+    <div class="card"">
+  <!--if seller show delete button => delete route whicih will dlete the book with book.id, button => mark is sold=> css changes  -->
+      <div class="card-body">
+        <h5 class="card-title">Contact Seller</h5>
+        <form id="messageForm" method="POST" action="/sms"><p class="card-text">
         <textarea name="messageText" placeholder="Your Messsage" id="messageToSend" cols="25" rows="3" >Hi, I'm interested! Please contact me if this is still available.</textarea>
       </p>
-  </div>
-  <div class="card-body">
+      </div>
+      <div class="card-body">
     <button class="btn btn-primary" id="sendMessageBtn" type="submit" form="messageForm">Send Message</button>
-  </div></form>
+      </div></form>
+    </div>
+      </div>
+
+    </div>
+
 </div>
-</div>
-</div>
+<% } %>
+
 <%- include("partials/footer") %>
