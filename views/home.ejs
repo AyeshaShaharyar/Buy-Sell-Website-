@@ -3,7 +3,7 @@
     <!-- Carousel -->
     <section>
 
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div  id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -46,8 +46,8 @@
               <p class="card-text"><%= book.description %></p>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button  type="submit" onclick="location.href = '/books/<%= book.title %>';" class="btn btn-sm btn-outline-secondary">View</button>
-                 <%= console.log (book) %>
+                  <button  type="submit" onclick="location.href ='/books/<%= book.title %>';" class="btn btn-sm btn-outline-secondary">View</button>
+
                   <% if(!book.issold) { %>
                   <button type="submit" onclick="location.href = '/books/<%= book.title %>';" class="btn btn-sm btn-outline-secondary">Buy</button>
                   <% } else { %>

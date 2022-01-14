@@ -1,40 +1,58 @@
 <%- include("partials/header") %>
 
-<p><%= description %></p>
-<p>$<%= price %></p>
-<figure style="margin-top: 120px; "class="figure">
-  <img src=<%= image %> width="400px" height="300px" class="figure-img img-fluid rounded" alt="...">
-  <figcaption class="figure-caption"><%= title %></figcaption>
-  <p><%= condition %></p>
+<div class="container">
+  <div class="row justify-content-between">
+    <div class="col-4">
+      <h3><%= title %></h3>
 
-</figure>
-
-<a href="/">Browse More Books</a>
-
-<% if (user === seller) { %>
+        <img src=<%= image %> width="130%" height="450px"  alt="...">
+        <p><%= description %></p>
+        <p>Price: $<%= price %></p>
+        <p>Condition: <%= condition %></p>
 
 
-  <form action="/books/delete/<%= bookId %>" method="POST">
-    <button type="submit" class="btn btn-warning">Delete Ad</button>
-  </form>
+    </div>
+    <div style="margin-top: 40px;" class="col-4">
+      <% if (user === seller) { %>
 
-  <form action="/books/sold/<%= bookId %>" method="POST">
-    <button type="submit" id="sold" class="btn btn-success">Mark as Sold</button>
-  </form>
+        <div>
+        <form action="/books/delete/<%= bookId %>" method="POST">
+          <button type="submit" class="btn btn-warning">Delete Ad</button>
+        </form>
+        <br>
+        <form action="/books/sold/<%= bookId %>" method="POST">
+          <button type="submit" id="sold" class="btn btn-success">Mark as Sold</button>
+        </form>
+      </div>
 
 
 
-<% } else { %>
-<div class="card" style="width: 18rem;">
-  <!--if seller show delete button => delete route whicih will dlete the book with book.id, button => mark is sold=> css changes  -->
-  <div class="card-body">
-    <h5 class="card-title">Contact Seller</h5>
-    <p class="card-text"><textarea name="" placeholder="Your Messsage" id="" cols="25" rows="3">Hi, I'm interested! Please contact me if this is still available.</textarea></p>
-  </div>
-  <div class="card-body">
-    <button class="btn btn-primary">Send Message</button>
+      <% } else { %>
+      <div class="card" style="width: 18rem; height: 350px;">
+
+        <div class="card-body">
+          <h5 class="card-title">Contact Seller</h5>
+          <div class="input-group">
+            <textarea class="form-control" aria-label="With textarea" cols="3" rows="8">Hi, I'm interested! Please contact me if this is still available.</textarea>
+          </div>
+
+        </div>
+        <div class="card-body">
+          <button class="btn btn-primary">Send Message</button>
+        </div>
+      </div>
+      <% } %>
+
+    </div>
   </div>
 </div>
-<% } %>
+
+
+
+<div class="browse-books"><a href="/">Browse More Books</a></div>
+
+
+
+
 
 <%- include("partials/footer") %>
