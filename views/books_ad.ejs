@@ -32,10 +32,11 @@
 
         <div class="card-body">
           <h5 class="card-title">Contact Seller</h5>
+          <form id="messageForm" method="POST" action="/sms">
           <div class="input-group">
-            <form id="messageForm" method="POST" action="/sms">
-              <textarea name="messageText" placeholder="Your Messsage" id="messageToSend" class="form-control" aria-label="With textarea" cols="3" rows="8">Hi, I'm interested! Please contact me if this is still available.</textarea></form>
-          </div>
+              <textarea name="messageText" placeholder="Your Messsage" id="messageToSend" class="form-control" aria-label="With textarea" cols="3" rows="8">Hi, I'm interested! Please contact me if this is still available.</textarea>
+            </div>
+          </form>
 
         </div>
         <div class="card-body">
