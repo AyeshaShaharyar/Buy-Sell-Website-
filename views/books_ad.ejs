@@ -13,9 +13,16 @@
 
 <% if (user === seller) { %>
 
-<button class="btn"><a href="/books/delete/<%= bookId %>">Delete Ad</a></button>
 
-<button id="sold" class="btn"><a href="/books/sold/<%= bookId %>">Mark as Sold</a></button>
+  <form action="/books/delete/<%= bookId %>" method="POST">
+    <button type="submit" class="btn btn-warning">Delete Ad</button>
+  </form>
+
+  <form action="/books/sold/<%= bookId %>" method="POST">
+    <button type="submit" id="sold" class="btn btn-success">Mark as Sold</button>
+  </form>
+
+
 
 <% } else { %>
 <div class="card" style="width: 18rem;">

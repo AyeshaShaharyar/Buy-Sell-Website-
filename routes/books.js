@@ -130,7 +130,7 @@ module.exports = (db) => {
       });
   });
 
-  router.get("/delete/:id", (req, res) => {
+  router.post("/delete/:id", (req, res) => {
     db.query(`DELETE FROM books WHERE books.id = ${req.params.id}`)
       .then((data) => {
         res.status(204)
@@ -143,10 +143,10 @@ module.exports = (db) => {
       });
   });
 
-  router.get("/sold/:id", (req,res)=>{
+  router.post("/sold/:id", (req,res)=>{
     db.query(`UPDATE books
     SET issold = true
-    WHERE books.id= ${req.params.id} LIMIT 1;`)
+    WHERE books.id= ${req.params.id};`)
     .then((data) => {
       res.status(204)
       res.redirect("/books");
