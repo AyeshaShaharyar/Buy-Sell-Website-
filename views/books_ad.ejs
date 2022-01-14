@@ -5,16 +5,23 @@
 </head>
 
 <%- include("partials/header") %>
-
+<div class="figure-and-browse-more">
+<div class="figure-wrap">
 <figure style="margin-top: 120px; "class="figure">
   <img src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" width="400px" height="300px" class="figure-img img-fluid rounded" alt="...">
   <figcaption class="figure-caption">Book titlr.</figcaption>
-  <p>Description</p>
-  <p>price</p>
+  <div class="discription-and-price">
+    <div><p>Description</p></div>
+  <div><p>price</p></div>
+</div>
 </figure>
-
+<div class="browse-more-books">
 <a href="/">Browse More Books</a>
-<div class="card" style="width: 18rem;">
+</div>
+</div>
+<div class="bookCardWrap">
+<div class="card">
+  <!-- style="width: 18rem;"> -->
 
   <div class="card-body">
     <h5 class="card-title">Contact Seller</h5>
@@ -26,5 +33,6 @@
     <button class="btn btn-primary" id="sendMessageBtn" type="submit" form="messageForm">Send Message</button>
   </div></form>
 </div>
-
+</div>
+</div>
 <%- include("partials/footer") %>
